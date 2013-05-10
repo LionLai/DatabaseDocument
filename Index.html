@@ -1,0 +1,185 @@
+
+<!DOCTYPE html>
+<html ng-app>
+ <head>
+    <meta charset="utf-8">
+    <title>Angular JS Database Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta http-equiv="Content-Type" content="text/html; charset=big5">
+    <meta charset="big5">
+    <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+      .sidebar-nav {
+        padding: 9px 0;
+      }
+
+      @media (max-width: 980px) {
+        /* Enable use of floated navbar text */
+        .navbar-text.pull-right {
+          float: none;
+          padding-left: 5px;
+          padding-right: 5px;
+        }
+      }
+    </style>
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.1.4/angular.min.js"></script>
+    <script src="data.js"></script>
+    <script>
+      function AppController ($scope)
+      {
+        $scope.data = dbData;
+      }
+    </script>
+</head>
+<body ng-controller="AppController">
+    <!-- 導覽列 -->
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="#">DB</a>
+        </div>
+      </div>
+    </div>
+    <!-- 導覽列 End-->
+
+    <div class="container-fluid">
+      <div class="row-fluid">
+        <div class="span3">
+          <div class="well sidebar-nav">
+            <ul class="nav nav-list">
+              <li class="nav-header">所有表格</li>
+              <li ng-repeat="item in data">
+                <a href="#Table:{{item.TableName}}" ng-click="Detail()" >{{item.TableName}}</a>
+              </li>
+            </ul>
+          </div><!--/.well -->
+        </div><!--/span-->
+        <div class="span9">
+          <a name="Index"></a>
+          <div ng-repeat="item in data">
+            <a name="Table:{{item.TableName}}"></a>
+            <b>TableName : {{item.TableName}}</b>
+            <hr />
+            <b>Description</b>
+            <p>{{item.Description}}</p>
+            <hr />
+            <b>Table Columns</b>
+            <p clase="pull-right">
+              <a href="#Index" clase="pull-right">Index</a>
+            </p>
+            <table class="table table-bordered">
+              <thead>
+                <th>Name</th>
+                <th>Datatype</th>
+                <th>Nullable</th>
+                <th>Description</th>
+              </thead>
+              <tbody>
+                <tr ng-repeat="col in item.Coumns">
+                  <td>
+                    {{col.Name}}
+                  </td>
+                  <td>
+                    {{col.Datatype}}
+                  </td>
+                  <td>
+                    {{col.Nullable}}
+                  </td>
+                  <td>
+                    {{col.Description}}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <b>Refrence Keys</b>
+            <table class="table table-bordered">
+              <thead>
+                <th>Name</th>
+                <th>Column</th>
+                <th>Reference To</th>
+              </thead>
+              <tbody>
+                <tr ng-repeat="fk in item.FKs">
+                  <td>
+                    {{fk.Name}}
+                  </td>
+                  <td>
+                    {{fk.Column}}
+                  </td>
+                  <td>
+                    {{fk.ReferenceTo}}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <b>Default Constraints</b>
+            <table class="table table-bordered">
+              <thead>
+                <th>Name</th>
+                <th>Column</th>
+                <th>Value</th>
+              </thead>
+              <tbody>
+                <tr ng-repeat="dc in item.DefaultConstraints">
+                  <td>
+                    {{dc.Name}}
+                  </td>
+                  <td>
+                    {{dc.Column}}
+                  </td>
+                  <td>
+                    {{dc.Value}}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <b>Indexes</b>
+            <table class="table table-bordered">
+              <thead>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Columns</th>
+              </thead>
+              <tbody>
+                <tr ng-repeat="index in item.Indexes">
+                  <td>
+                    {{index.Name}}
+                  </td>
+                  <td>
+                    {{index.Type}}
+                  </td>
+                  <td>
+                    <span ng-repeat="col in index.Columns">
+                      {{col.Columns}}
+                    </sapn>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div><!--/span-->
+      </div><!--/row-->
+
+      <hr>
+
+      <footer>
+        <p>&copy; Lion@Lai 2013</p>
+      </footer>
+
+    </div><!--/.fluid-container-->
+
+</body>
+</html>
