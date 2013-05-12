@@ -32,10 +32,111 @@
     <script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.1.4/angular.min.js"></script>
     <script src="data.js"></script>
+    <script type="text/ng-template" id="/detail">
+        <h2>TableName : {{detailData.TableName}}</h2>
+        <hr />
+        <b>Description</b>
+        <p>{{detailData.Description}}</p>
+        <hr />
+        <b>Table Columns</b>
+        <table class="table table-bordered">
+          <thead>
+            <th>Name</th>
+            <th>Datatype</th>
+            <th>Nullable</th>
+            <th>Description</th>
+          </thead>
+          <tbody>
+            <tr ng-repeat="col in detailData.Coumns">
+              <td>
+                {{col.Name}}
+              </td>
+              <td>
+                {{col.Datatype}}
+              </td>
+              <td>
+                {{col.Nullable}}
+              </td>
+              <td>
+                {{col.Description}}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <b>Refrence Keys</b>
+        <table class="table table-bordered">
+          <thead>
+            <th>Name</th>
+            <th>Column</th>
+            <th>Reference To</th>
+          </thead>
+          <tbody>
+            <tr ng-repeat="fk in detailData.FKs">
+              <td>
+                {{fk.Name}}
+              </td>
+              <td>
+                {{fk.Column}}
+              </td>
+              <td>
+                {{fk.ReferenceTo}}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <b>Default Constraints</b>
+        <table class="table table-bordered">
+          <thead>
+            <th>Name</th>
+            <th>Column</th>
+            <th>Value</th>
+          </thead>
+          <tbody>
+            <tr ng-repeat="dc in detailData.DefaultConstraints">
+              <td>
+                {{dc.Name}}
+              </td>
+              <td>
+                {{dc.Column}}
+              </td>
+              <td>
+                {{dc.Value}}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <b>Indexes</b>
+        <table class="table table-bordered">
+          <thead>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Columns</th>
+          </thead>
+          <tbody>
+            <tr ng-repeat="index in detailData.Indexes">
+              <td>
+                {{index.Name}}
+              </td>
+              <td>
+                {{index.Type}}
+              </td>
+              <td>
+                <span ng-repeat="col in index.Columns">
+                  {{col.Columns}}
+                </sapn>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+    </script>
     <script>
       function AppController ($scope)
       {
         $scope.data = dbData;
+        $scope.detailData = dbData[0];
+        $scope.Detail = function(detail){
+          $scope.detailData = detail;
+        }
       }
     </script>
 </head>
@@ -60,121 +161,19 @@
         <div class="span3">
           <div class="well sidebar-nav">
             <ul class="nav nav-list">
-              <li class="nav-header">所有表格</li>
+              <li class="nav-header">All Tables - Click TableName If You Want To View</li>
               <li ng-repeat="item in data">
-                <a href="#Table:{{item.TableName}}" ng-click="Detail()" >{{item.TableName}}</a>
+                <a href="#Table:{{item.TableName}}" ng-click="Detail(item)">{{item.TableName}}</a>
               </li>
             </ul>
           </div><!--/.well -->
         </div><!--/span-->
         <div class="span9">
-          <a name="Index"></a>
-          <div ng-repeat="item in data">
-            <a name="Table:{{item.TableName}}"></a>
-            <b>TableName : {{item.TableName}}</b>
-            <hr />
-            <b>Description</b>
-            <p>{{item.Description}}</p>
-            <hr />
-            <b>Table Columns</b>
-            <p clase="pull-right">
-              <a href="#Index" clase="pull-right">Index</a>
-            </p>
-            <table class="table table-bordered">
-              <thead>
-                <th>Name</th>
-                <th>Datatype</th>
-                <th>Nullable</th>
-                <th>Description</th>
-              </thead>
-              <tbody>
-                <tr ng-repeat="col in item.Coumns">
-                  <td>
-                    {{col.Name}}
-                  </td>
-                  <td>
-                    {{col.Datatype}}
-                  </td>
-                  <td>
-                    {{col.Nullable}}
-                  </td>
-                  <td>
-                    {{col.Description}}
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-            <b>Refrence Keys</b>
-            <table class="table table-bordered">
-              <thead>
-                <th>Name</th>
-                <th>Column</th>
-                <th>Reference To</th>
-              </thead>
-              <tbody>
-                <tr ng-repeat="fk in item.FKs">
-                  <td>
-                    {{fk.Name}}
-                  </td>
-                  <td>
-                    {{fk.Column}}
-                  </td>
-                  <td>
-                    {{fk.ReferenceTo}}
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-            <b>Default Constraints</b>
-            <table class="table table-bordered">
-              <thead>
-                <th>Name</th>
-                <th>Column</th>
-                <th>Value</th>
-              </thead>
-              <tbody>
-                <tr ng-repeat="dc in item.DefaultConstraints">
-                  <td>
-                    {{dc.Name}}
-                  </td>
-                  <td>
-                    {{dc.Column}}
-                  </td>
-                  <td>
-                    {{dc.Value}}
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-            <b>Indexes</b>
-            <table class="table table-bordered">
-              <thead>
-                <th>Name</th>
-                <th>Type</th>
-                <th>Columns</th>
-              </thead>
-              <tbody>
-                <tr ng-repeat="index in item.Indexes">
-                  <td>
-                    {{index.Name}}
-                  </td>
-                  <td>
-                    {{index.Type}}
-                  </td>
-                  <td>
-                    <span ng-repeat="col in index.Columns">
-                      {{col.Columns}}
-                    </sapn>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+          <div ng-include src="'/detail'">
           </div>
         </div><!--/span-->
       </div><!--/row-->
-
       <hr>
-
       <footer>
         <p>&copy; Lion@Lai 2013</p>
       </footer>
