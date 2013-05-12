@@ -7,16 +7,16 @@
 Declare @i Int, @maxi Int
 Declare @j Int, @maxj Int
 Declare @sr int
-Declare @Output varchar(4000)
+Declare @Output nvarchar(4000)
 --Declare @tmpOutput varchar(max)
-Declare @SqlVersion varchar(5)
-Declare @last varchar(155), @current varchar(255), @typ varchar(255), @description varchar(4000)
+Declare @SqlVersion nvarchar(5)
+Declare @last nvarchar(155), @current nvarchar(255), @typ nvarchar(255), @description nvarchar(4000)
 
-create Table #Tables  (id int identity(1, 1), Object_id int, Name varchar(155), Type varchar(20), [description] varchar(4000))
-create Table #Columns (id int identity(1,1), Name varchar(155), Type Varchar(155), Nullable varchar(2), [description] varchar(4000))
-create Table #Fk(id int identity(1,1), Name varchar(155), col Varchar(155), refObj varchar(155), refCol varchar(155))
-create Table #Constraint(id int identity(1,1), Name varchar(155), col Varchar(155), definition varchar(1000))
-create Table #Indexes(id int identity(1,1), Name varchar(155), Type Varchar(25), cols varchar(1000))
+create Table #Tables  (id int identity(1, 1), Object_id int, Name nvarchar(155), Type nvarchar(20), [description] nvarchar(4000))
+create Table #Columns (id int identity(1,1), Name nvarchar(155), Type nVarchar(155), Nullable nvarchar(2), [description] nvarchar(4000))
+create Table #Fk(id int identity(1,1), Name nvarchar(155), col nVarchar(155), refObj nvarchar(155), refCol nvarchar(155))
+create Table #Constraint(id int identity(1,1), Name nvarchar(155), col nVarchar(155), definition nvarchar(1000))
+create Table #Indexes(id int identity(1,1), Name nvarchar(155), Type nVarchar(25), cols nvarchar(1000))
 
  If (substring(@@VERSION, 1, 25 ) = 'Microsoft SQL Server 2005')
 	set @SqlVersion = '2005'
@@ -32,7 +32,7 @@ set nocount on
 			--FOR 2000
 			select object_id(table_name),  '[' + table_schema + '].[' + table_name + ']',  
 			case when table_type = 'BASE TABLE'  then 'Table'   else 'View' end,
-			cast(p.value as varchar(4000))
+			cast(p.value as nvarchar(4000))
 			from information_schema.tables t
 			left outer join sysproperties p on p.id = object_id(t.table_name) and smallid = 0 and p.name = 'MS_Description' 
 			order by table_type, table_schema, table_name
@@ -43,7 +43,7 @@ set nocount on
 		--FOR 2005
 		Select o.object_id,  '[' + s.name + '].[' + o.name + ']', 
 				case when type = 'V' then 'View' when type = 'U' then 'Table' end,  
-				cast(p.value as varchar(4000))
+				cast(p.value as nvarchar(4000))
 				from sys.objects o 
 					left outer join sys.schemas s on s.schema_id = o.schema_id 
 					left outer join sys.extended_properties p on p.major_id = o.object_id and minor_id = 0 and p.name = 'MS_Description' 
@@ -84,7 +84,7 @@ BEGIN
 					end				
 					), 
 					case when isnullable = 1 then 'Y' else 'N'  end, 
-					cast(p.value as varchar(8000))
+					cast(p.value as nvarchar(8000))
 				from syscolumns c
 					inner join #Tables t on t.object_id = c.id
 					left outer join sysproperties p on p.id = c.id and p.smallid = c.colid and p.name = 'MS_Description' 
@@ -105,7 +105,7 @@ BEGIN
 					end				
 					), 
 					case when is_nullable = 1 then 'Y' else 'N'  end,
-					cast(p.value as varchar(4000))
+					cast(p.value as nvarchar(4000))
 		from sys.columns c
 				inner join #Tables t on t.object_id = c.object_id
 				left outer join sys.extended_properties p on p.major_id = c.object_id and p.minor_id  = c.column_id and p.name = 'MS_Description' 
