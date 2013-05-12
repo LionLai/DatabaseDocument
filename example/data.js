@@ -7,11 +7,6 @@ var dbData = [{
 		Nullable: "N",
 		Description: "Primary key for AWBuildVersion records."
 	}, {
-		Name: "SystemInformationID",
-		Datatype: "TINYINT",
-		Nullable: "N",
-		Description: "Clustered index created by a primary key constraint."
-	}, {
 		Name: "Database Version",
 		Datatype: "NVARCHAR(50)",
 		Nullable: "N",
@@ -50,11 +45,6 @@ var dbData = [{
 		Datatype: "DATETIME",
 		Nullable: "N",
 		Description: "The date and time the DDL change occurred."
-	}, {
-		Name: "PostTime",
-		Datatype: "DATETIME",
-		Nullable: "N",
-		Description: "Nonclustered index created by a primary key constraint."
 	}, {
 		Name: "DatabaseUser",
 		Datatype: "SYSNAME",
@@ -99,11 +89,6 @@ var dbData = [{
 		Datatype: "INT",
 		Nullable: "N",
 		Description: "Primary key for ErrorLog records."
-	}, {
-		Name: "ErrorLogID",
-		Datatype: "INT",
-		Nullable: "N",
-		Description: "Clustered index created by a primary key constraint."
 	}, {
 		Name: "ErrorTime",
 		Datatype: "DATETIME",
@@ -164,20 +149,10 @@ var dbData = [{
 		Nullable: "N",
 		Description: "Primary key for Department records."
 	}, {
-		Name: "DepartmentID",
-		Datatype: "SMALLINT",
-		Nullable: "N",
-		Description: "Clustered index created by a primary key constraint."
-	}, {
 		Name: "Name",
 		Datatype: "NAME",
 		Nullable: "N",
 		Description: "Name of the department."
-	}, {
-		Name: "Name",
-		Datatype: "NAME",
-		Nullable: "N",
-		Description: "Unique nonclustered index."
 	}, {
 		Name: "GroupName",
 		Datatype: "NAME",
@@ -212,30 +187,15 @@ var dbData = [{
 		Nullable: "N",
 		Description: "Primary key for Employee records.  Foreign key to BusinessEntity.BusinessEntityID."
 	}, {
-		Name: "BusinessEntityID",
-		Datatype: "INT",
-		Nullable: "N",
-		Description: "Clustered index created by a primary key constraint."
-	}, {
 		Name: "NationalIDNumber",
 		Datatype: "NVARCHAR(30)",
 		Nullable: "N",
 		Description: "Unique national identification number such as a social security number."
 	}, {
-		Name: "NationalIDNumber",
-		Datatype: "NVARCHAR(30)",
-		Nullable: "N",
-		Description: "Unique nonclustered index."
-	}, {
 		Name: "LoginID",
 		Datatype: "NVARCHAR(512)",
 		Nullable: "N",
 		Description: "Network login."
-	}, {
-		Name: "LoginID",
-		Datatype: "NVARCHAR(512)",
-		Nullable: "N",
-		Description: "Unique nonclustered index."
 	}, {
 		Name: "OrganizationNode",
 		Datatype: "HIERARCHYID",
@@ -247,30 +207,15 @@ var dbData = [{
 		Nullable: "Y",
 		Description: "The depth of the employee in the corporate hierarchy."
 	}, {
-		Name: "OrganizationLevel",
-		Datatype: "SMALLINT",
-		Nullable: "Y",
-		Description: "Unique nonclustered index."
-	}, {
 		Name: "JobTitle",
 		Datatype: "NVARCHAR(100)",
 		Nullable: "N",
 		Description: "Work title such as Buyer or Sales Representative."
 	}, {
-		Name: "JobTitle",
-		Datatype: "NVARCHAR(100)",
-		Nullable: "N",
-		Description: "Unique nonclustered index."
-	}, {
 		Name: "BirthDate",
 		Datatype: "DATE",
 		Nullable: "N",
 		Description: "Date of birth."
-	}, {
-		Name: "BirthDate",
-		Datatype: "DATE",
-		Nullable: "N",
-		Description: "Unique nonclustered index. Used to support replication samples."
 	}, {
 		Name: "MaritalStatus",
 		Datatype: "NCHAR(2)",
@@ -410,30 +355,15 @@ var dbData = [{
 		Nullable: "N",
 		Description: "Employee identification number. Foreign key to Employee.BusinessEntityID."
 	}, {
-		Name: "BusinessEntityID",
-		Datatype: "INT",
-		Nullable: "N",
-		Description: "Clustered index created by a primary key constraint."
-	}, {
 		Name: "DepartmentID",
 		Datatype: "SMALLINT",
 		Nullable: "N",
 		Description: "Department in which the employee worked including currently. Foreign key to Department.DepartmentID."
 	}, {
-		Name: "DepartmentID",
-		Datatype: "SMALLINT",
-		Nullable: "N",
-		Description: "Nonclustered index."
-	}, {
 		Name: "ShiftID",
 		Datatype: "TINYINT",
 		Nullable: "N",
 		Description: "Identifies which 8-hour shift the employee works. Foreign key to Shift.Shift.ID."
-	}, {
-		Name: "ShiftID",
-		Datatype: "TINYINT",
-		Nullable: "N",
-		Description: "Nonclustered index."
 	}, {
 		Name: "StartDate",
 		Datatype: "DATE",
@@ -495,11 +425,6 @@ var dbData = [{
 		Nullable: "N",
 		Description: "Employee identification number. Foreign key to Employee.BusinessEntityID."
 	}, {
-		Name: "BusinessEntityID",
-		Datatype: "INT",
-		Nullable: "N",
-		Description: "Clustered index created by a primary key constraint."
-	}, {
 		Name: "RateChangeDate",
 		Datatype: "DATETIME",
 		Nullable: "N",
@@ -553,25 +478,15 @@ var dbData = [{
 		Nullable: "N",
 		Description: "Primary key for JobCandidate records."
 	}, {
-		Name: "JobCandidateID",
-		Datatype: "INT",
-		Nullable: "N",
-		Description: "Clustered index created by a primary key constraint."
-	}, {
 		Name: "BusinessEntityID",
 		Datatype: "INT",
 		Nullable: "Y",
 		Description: "Employee identification number if applicant was hired. Foreign key to Employee.BusinessEntityID."
 	}, {
-		Name: "BusinessEntityID",
-		Datatype: "INT",
-		Nullable: "Y",
-		Description: "Nonclustered index."
-	}, {
 		Name: "Resume",
 		Datatype: "XML",
 		Nullable: "Y",
-		Description: "Resume in XML format."
+		Description: "Résumé in XML format."
 	}, {
 		Name: "ModifiedDate",
 		Datatype: "DATETIME",
@@ -606,30 +521,15 @@ var dbData = [{
 		Nullable: "N",
 		Description: "Primary key for Shift records."
 	}, {
-		Name: "ShiftID",
-		Datatype: "TINYINT",
-		Nullable: "N",
-		Description: "Clustered index created by a primary key constraint."
-	}, {
 		Name: "Name",
 		Datatype: "NAME",
 		Nullable: "N",
 		Description: "Shift description."
 	}, {
-		Name: "Name",
-		Datatype: "NAME",
-		Nullable: "N",
-		Description: "Unique nonclustered index."
-	}, {
 		Name: "StartTime",
 		Datatype: "TIME",
 		Nullable: "N",
 		Description: "Shift start time."
-	}, {
-		Name: "StartTime",
-		Datatype: "TIME",
-		Nullable: "N",
-		Description: "Unique nonclustered index."
 	}, {
 		Name: "EndTime",
 		Datatype: "TIME",
@@ -668,40 +568,20 @@ var dbData = [{
 		Nullable: "N",
 		Description: "Primary key for Address records."
 	}, {
-		Name: "AddressID",
-		Datatype: "INT",
-		Nullable: "N",
-		Description: "Clustered index created by a primary key constraint."
-	}, {
 		Name: "AddressLine1",
 		Datatype: "NVARCHAR(120)",
 		Nullable: "N",
 		Description: "First street address line."
-	}, {
-		Name: "AddressLine1",
-		Datatype: "NVARCHAR(120)",
-		Nullable: "N",
-		Description: "Unique nonclustered index. Used to support replication samples."
 	}, {
 		Name: "AddressLine2",
 		Datatype: "NVARCHAR(120)",
 		Nullable: "Y",
 		Description: "Second street address line."
 	}, {
-		Name: "AddressLine2",
-		Datatype: "NVARCHAR(120)",
-		Nullable: "Y",
-		Description: "Nonclustered index."
-	}, {
 		Name: "City",
 		Datatype: "NVARCHAR(60)",
 		Nullable: "N",
 		Description: "Name of the city."
-	}, {
-		Name: "City",
-		Datatype: "NVARCHAR(60)",
-		Nullable: "N",
-		Description: "Nonclustered index."
 	}, {
 		Name: "StateProvinceID",
 		Datatype: "INT",
@@ -768,30 +648,15 @@ var dbData = [{
 		Nullable: "N",
 		Description: "Primary key for AddressType records."
 	}, {
-		Name: "AddressTypeID",
-		Datatype: "INT",
-		Nullable: "N",
-		Description: "Clustered index created by a primary key constraint."
-	}, {
 		Name: "Name",
 		Datatype: "NAME",
 		Nullable: "N",
 		Description: "Address type description. For example, Billing, Home, or Shipping."
 	}, {
-		Name: "Name",
-		Datatype: "NAME",
-		Nullable: "N",
-		Description: "Unique nonclustered index. Used to support replication samples."
-	}, {
 		Name: "rowguid",
 		Datatype: "UNIQUEIDENTIFIER",
 		Nullable: "N",
 		Description: "ROWGUIDCOL number uniquely identifying the record. Used to support a merge replication sample."
-	}, {
-		Name: "rowguid",
-		Datatype: "UNIQUEIDENTIFIER",
-		Nullable: "N",
-		Description: "Unique nonclustered index."
 	}, {
 		Name: "ModifiedDate",
 		Datatype: "DATETIME",
@@ -829,20 +694,10 @@ var dbData = [{
 		Nullable: "N",
 		Description: "Primary key for all customers, vendors, and employees."
 	}, {
-		Name: "BusinessEntityID",
-		Datatype: "INT",
-		Nullable: "N",
-		Description: "Clustered index created by a primary key constraint."
-	}, {
 		Name: "rowguid",
 		Datatype: "UNIQUEIDENTIFIER",
 		Nullable: "N",
 		Description: "ROWGUIDCOL number uniquely identifying the record. Used to support a merge replication sample."
-	}, {
-		Name: "rowguid",
-		Datatype: "UNIQUEIDENTIFIER",
-		Nullable: "N",
-		Description: "Unique nonclustered index. Used to support replication samples."
 	}, {
 		Name: "ModifiedDate",
 		Datatype: "DATETIME",
@@ -876,40 +731,20 @@ var dbData = [{
 		Nullable: "N",
 		Description: "Primary key. Foreign key to BusinessEntity.BusinessEntityID."
 	}, {
-		Name: "BusinessEntityID",
-		Datatype: "INT",
-		Nullable: "N",
-		Description: "Clustered index created by a primary key constraint."
-	}, {
 		Name: "AddressID",
 		Datatype: "INT",
 		Nullable: "N",
 		Description: "Primary key. Foreign key to Address.AddressID."
-	}, {
-		Name: "AddressID",
-		Datatype: "INT",
-		Nullable: "N",
-		Description: "Unique nonclustered index. Used to support replication samples."
 	}, {
 		Name: "AddressTypeID",
 		Datatype: "INT",
 		Nullable: "N",
 		Description: "Primary key. Foreign key to AddressType.AddressTypeID."
 	}, {
-		Name: "AddressTypeID",
-		Datatype: "INT",
-		Nullable: "N",
-		Description: "Nonclustered index."
-	}, {
 		Name: "rowguid",
 		Datatype: "UNIQUEIDENTIFIER",
 		Nullable: "N",
 		Description: "ROWGUIDCOL number uniquely identifying the record. Used to support a merge replication sample."
-	}, {
-		Name: "rowguid",
-		Datatype: "UNIQUEIDENTIFIER",
-		Nullable: "N",
-		Description: "Nonclustered index."
 	}, {
 		Name: "ModifiedDate",
 		Datatype: "DATETIME",
@@ -964,40 +799,20 @@ var dbData = [{
 		Nullable: "N",
 		Description: "Primary key. Foreign key to BusinessEntity.BusinessEntityID."
 	}, {
-		Name: "BusinessEntityID",
-		Datatype: "INT",
-		Nullable: "N",
-		Description: "Clustered index created by a primary key constraint."
-	}, {
 		Name: "PersonID",
 		Datatype: "INT",
 		Nullable: "N",
 		Description: "Primary key. Foreign key to Person.BusinessEntityID."
-	}, {
-		Name: "PersonID",
-		Datatype: "INT",
-		Nullable: "N",
-		Description: "Unique nonclustered index. Used to support replication samples."
 	}, {
 		Name: "ContactTypeID",
 		Datatype: "INT",
 		Nullable: "N",
 		Description: "Primary key.  Foreign key to ContactType.ContactTypeID."
 	}, {
-		Name: "ContactTypeID",
-		Datatype: "INT",
-		Nullable: "N",
-		Description: "Nonclustered index."
-	}, {
 		Name: "rowguid",
 		Datatype: "UNIQUEIDENTIFIER",
 		Nullable: "N",
 		Description: "ROWGUIDCOL number uniquely identifying the record. Used to support a merge replication sample."
-	}, {
-		Name: "rowguid",
-		Datatype: "UNIQUEIDENTIFIER",
-		Nullable: "N",
-		Description: "Nonclustered index."
 	}, {
 		Name: "ModifiedDate",
 		Datatype: "DATETIME",
@@ -1052,20 +867,10 @@ var dbData = [{
 		Nullable: "N",
 		Description: "Primary key for ContactType records."
 	}, {
-		Name: "ContactTypeID",
-		Datatype: "INT",
-		Nullable: "N",
-		Description: "Clustered index created by a primary key constraint."
-	}, {
 		Name: "Name",
 		Datatype: "NAME",
 		Nullable: "N",
 		Description: "Contact type description."
-	}, {
-		Name: "Name",
-		Datatype: "NAME",
-		Nullable: "N",
-		Description: "Unique nonclustered index."
 	}, {
 		Name: "ModifiedDate",
 		Datatype: "DATETIME",
@@ -1095,20 +900,10 @@ var dbData = [{
 		Nullable: "N",
 		Description: "ISO standard code for countries and regions."
 	}, {
-		Name: "CountryRegionCode",
-		Datatype: "NVARCHAR(6)",
-		Nullable: "N",
-		Description: "Clustered index created by a primary key constraint."
-	}, {
 		Name: "Name",
 		Datatype: "NAME",
 		Nullable: "N",
 		Description: "Country or region name."
-	}, {
-		Name: "Name",
-		Datatype: "NAME",
-		Nullable: "N",
-		Description: "Unique nonclustered index."
 	}, {
 		Name: "ModifiedDate",
 		Datatype: "DATETIME",
@@ -1138,20 +933,10 @@ var dbData = [{
 		Nullable: "N",
 		Description: "Primary key. Person associated with this email address.  Foreign key to Person.BusinessEntityID"
 	}, {
-		Name: "BusinessEntityID",
-		Datatype: "INT",
-		Nullable: "N",
-		Description: "Clustered index created by a primary key constraint."
-	}, {
 		Name: "EmailAddressID",
 		Datatype: "INT",
 		Nullable: "N",
 		Description: "Primary key. ID of this email address."
-	}, {
-		Name: "EmailAddressID",
-		Datatype: "INT",
-		Nullable: "N",
-		Description: "Nonclustered index."
 	}, {
 		Name: "EmailAddress",
 		Datatype: "NVARCHAR(100)",
@@ -1198,7 +983,7 @@ var dbData = [{
 		Name: "BusinessEntityID",
 		Datatype: "INT",
 		Nullable: "N",
-		Description: "Clustered index created by a primary key constraint."
+		Description: ""
 	}, {
 		Name: "PasswordHash",
 		Datatype: "VARCHAR(128)",
@@ -1248,11 +1033,6 @@ var dbData = [{
 		Nullable: "N",
 		Description: "Primary key for Person records."
 	}, {
-		Name: "BusinessEntityID",
-		Datatype: "INT",
-		Nullable: "N",
-		Description: "Clustered index created by a primary key constraint."
-	}, {
 		Name: "PersonType",
 		Datatype: "NCHAR(4)",
 		Nullable: "N",
@@ -1262,11 +1042,6 @@ var dbData = [{
 		Datatype: "NAMESTYLE",
 		Nullable: "N",
 		Description: "0 = The data in FirstName and LastName are stored in western style (first name, last name) order.  1 = Eastern style (last name, first name) order."
-	}, {
-		Name: "NameStyle",
-		Datatype: "NAMESTYLE",
-		Nullable: "N",
-		Description: "Unique nonclustered index. Used to support replication samples."
 	}, {
 		Name: "Title",
 		Datatype: "NVARCHAR(16)",
@@ -1395,20 +1170,10 @@ var dbData = [{
 		Nullable: "N",
 		Description: "Business entity identification number. Foreign key to Person.BusinessEntityID."
 	}, {
-		Name: "BusinessEntityID",
-		Datatype: "INT",
-		Nullable: "N",
-		Description: "Clustered index created by a primary key constraint."
-	}, {
 		Name: "PhoneNumber",
 		Datatype: "PHONE",
 		Nullable: "N",
 		Description: "Telephone number identification number."
-	}, {
-		Name: "PhoneNumber",
-		Datatype: "PHONE",
-		Nullable: "N",
-		Description: "Nonclustered index."
 	}, {
 		Name: "PhoneNumberTypeID",
 		Datatype: "INT",
@@ -1452,11 +1217,6 @@ var dbData = [{
 		Nullable: "N",
 		Description: "Primary key for telephone number type records."
 	}, {
-		Name: "PhoneNumberTypeID",
-		Datatype: "INT",
-		Nullable: "N",
-		Description: "Clustered index created by a primary key constraint."
-	}, {
 		Name: "Name",
 		Datatype: "NAME",
 		Nullable: "N",
@@ -1486,40 +1246,20 @@ var dbData = [{
 		Nullable: "N",
 		Description: "Primary key for StateProvince records."
 	}, {
-		Name: "StateProvinceID",
-		Datatype: "INT",
-		Nullable: "N",
-		Description: "Clustered index created by a primary key constraint."
-	}, {
 		Name: "StateProvinceCode",
 		Datatype: "NCHAR(6)",
 		Nullable: "N",
 		Description: "ISO standard state or province code."
-	}, {
-		Name: "StateProvinceCode",
-		Datatype: "NCHAR(6)",
-		Nullable: "N",
-		Description: "Unique nonclustered index."
 	}, {
 		Name: "CountryRegionCode",
 		Datatype: "NVARCHAR(6)",
 		Nullable: "N",
 		Description: "ISO standard country or region code. Foreign key to CountryRegion.CountryRegionCode. "
 	}, {
-		Name: "CountryRegionCode",
-		Datatype: "NVARCHAR(6)",
-		Nullable: "N",
-		Description: "Unique nonclustered index."
-	}, {
 		Name: "IsOnlyStateProvinceFlag",
 		Datatype: "FLAG",
 		Nullable: "N",
 		Description: "0 = StateProvinceCode exists. 1 = StateProvinceCode unavailable, using CountryRegionCode."
-	}, {
-		Name: "IsOnlyStateProvinceFlag",
-		Datatype: "FLAG",
-		Nullable: "N",
-		Description: "Unique nonclustered index. Used to support replication samples."
 	}, {
 		Name: "Name",
 		Datatype: "NAME",
@@ -1589,30 +1329,15 @@ var dbData = [{
 		Nullable: "N",
 		Description: "Primary key for BillOfMaterials records."
 	}, {
-		Name: "BillOfMaterialsID",
-		Datatype: "INT",
-		Nullable: "N",
-		Description: "Clustered index."
-	}, {
 		Name: "ProductAssemblyID",
 		Datatype: "INT",
 		Nullable: "Y",
 		Description: "Parent product identification number. Foreign key to Product.ProductID."
 	}, {
-		Name: "ProductAssemblyID",
-		Datatype: "INT",
-		Nullable: "Y",
-		Description: "Nonclustered index created by a primary key constraint."
-	}, {
 		Name: "ComponentID",
 		Datatype: "INT",
 		Nullable: "N",
 		Description: "Component identification number. Foreign key to Product.ProductID."
-	}, {
-		Name: "ComponentID",
-		Datatype: "INT",
-		Nullable: "N",
-		Description: "Nonclustered index."
 	}, {
 		Name: "StartDate",
 		Datatype: "DATETIME",
@@ -1709,20 +1434,10 @@ var dbData = [{
 		Nullable: "N",
 		Description: "Primary key for Culture records."
 	}, {
-		Name: "CultureID",
-		Datatype: "NCHAR(12)",
-		Nullable: "N",
-		Description: "Clustered index created by a primary key constraint."
-	}, {
 		Name: "Name",
 		Datatype: "NAME",
 		Nullable: "N",
 		Description: "Culture description."
-	}, {
-		Name: "Name",
-		Datatype: "NAME",
-		Nullable: "N",
-		Description: "Unique nonclustered index."
 	}, {
 		Name: "ModifiedDate",
 		Datatype: "DATETIME",
@@ -1752,11 +1467,6 @@ var dbData = [{
 		Nullable: "N",
 		Description: "Primary key for Document records."
 	}, {
-		Name: "DocumentNode",
-		Datatype: "HIERARCHYID",
-		Nullable: "N",
-		Description: "Clustered index created by a primary key constraint."
-	}, {
 		Name: "DocumentLevel",
 		Datatype: "SMALLINT",
 		Nullable: "Y",
@@ -1766,11 +1476,6 @@ var dbData = [{
 		Datatype: "NVARCHAR(100)",
 		Nullable: "N",
 		Description: "Title of the document."
-	}, {
-		Name: "Title",
-		Datatype: "NVARCHAR(100)",
-		Nullable: "N",
-		Description: "Unique nonclustered index."
 	}, {
 		Name: "Owner",
 		Datatype: "INT",
@@ -1782,20 +1487,10 @@ var dbData = [{
 		Nullable: "N",
 		Description: "0 = This is a folder, 1 = This is a document."
 	}, {
-		Name: "FolderFlag",
-		Datatype: "BIT",
-		Nullable: "N",
-		Description: "Unique nonclustered index. Used to support FileStream."
-	}, {
 		Name: "FileName",
 		Datatype: "NVARCHAR(800)",
 		Nullable: "N",
 		Description: "File name of the document"
-	}, {
-		Name: "FileName",
-		Datatype: "NVARCHAR(800)",
-		Nullable: "N",
-		Description: "Unique nonclustered index."
 	}, {
 		Name: "FileExtension",
 		Datatype: "NVARCHAR(16)",
@@ -1894,11 +1589,6 @@ var dbData = [{
 		Nullable: "N",
 		Description: "Primary key for Illustration records."
 	}, {
-		Name: "IllustrationID",
-		Datatype: "INT",
-		Nullable: "N",
-		Description: "Clustered index created by a primary key constraint."
-	}, {
 		Name: "Diagram",
 		Datatype: "XML",
 		Nullable: "Y",
@@ -1928,20 +1618,10 @@ var dbData = [{
 		Nullable: "N",
 		Description: "Primary key for Location records."
 	}, {
-		Name: "LocationID",
-		Datatype: "SMALLINT",
-		Nullable: "N",
-		Description: "Clustered index created by a primary key constraint."
-	}, {
 		Name: "Name",
 		Datatype: "NAME",
 		Nullable: "N",
 		Description: "Location description."
-	}, {
-		Name: "Name",
-		Datatype: "NAME",
-		Nullable: "N",
-		Description: "Unique nonclustered index."
 	}, {
 		Name: "CostRate",
 		Datatype: "SMALLMONEY",
@@ -1998,40 +1678,20 @@ var dbData = [{
 		Nullable: "N",
 		Description: "Primary key for Product records."
 	}, {
-		Name: "ProductID",
-		Datatype: "INT",
-		Nullable: "N",
-		Description: "Clustered index created by a primary key constraint."
-	}, {
 		Name: "Name",
 		Datatype: "NAME",
 		Nullable: "N",
 		Description: "Name of the product."
-	}, {
-		Name: "Name",
-		Datatype: "NAME",
-		Nullable: "N",
-		Description: "Unique nonclustered index."
 	}, {
 		Name: "ProductNumber",
 		Datatype: "NVARCHAR(50)",
 		Nullable: "N",
 		Description: "Unique product identification number."
 	}, {
-		Name: "ProductNumber",
-		Datatype: "NVARCHAR(50)",
-		Nullable: "N",
-		Description: "Unique nonclustered index."
-	}, {
 		Name: "MakeFlag",
 		Datatype: "FLAG",
 		Nullable: "N",
 		Description: "0 = Product is purchased, 1 = Product is manufactured in-house."
-	}, {
-		Name: "MakeFlag",
-		Datatype: "FLAG",
-		Nullable: "N",
-		Description: "Unique nonclustered index. Used to support replication samples."
 	}, {
 		Name: "FinishedGoodsFlag",
 		Datatype: "FLAG",
@@ -2239,30 +1899,15 @@ var dbData = [{
 		Nullable: "N",
 		Description: "Primary key for ProductCategory records."
 	}, {
-		Name: "ProductCategoryID",
-		Datatype: "INT",
-		Nullable: "N",
-		Description: "Clustered index created by a primary key constraint."
-	}, {
 		Name: "Name",
 		Datatype: "NAME",
 		Nullable: "N",
 		Description: "Category description."
 	}, {
-		Name: "Name",
-		Datatype: "NAME",
-		Nullable: "N",
-		Description: "Unique nonclustered index."
-	}, {
 		Name: "rowguid",
 		Datatype: "UNIQUEIDENTIFIER",
 		Nullable: "N",
 		Description: "ROWGUIDCOL number uniquely identifying the record. Used to support a merge replication sample."
-	}, {
-		Name: "rowguid",
-		Datatype: "UNIQUEIDENTIFIER",
-		Nullable: "N",
-		Description: "Unique nonclustered index. Used to support replication samples."
 	}, {
 		Name: "ModifiedDate",
 		Datatype: "DATETIME",
@@ -2299,11 +1944,6 @@ var dbData = [{
 		Datatype: "INT",
 		Nullable: "N",
 		Description: "Product identification number. Foreign key to Product.ProductID"
-	}, {
-		Name: "ProductID",
-		Datatype: "INT",
-		Nullable: "N",
-		Description: "Clustered index created by a primary key constraint."
 	}, {
 		Name: "StartDate",
 		Datatype: "DATETIME",
@@ -2358,20 +1998,10 @@ var dbData = [{
 		Nullable: "N",
 		Description: "Primary key for ProductDescription records."
 	}, {
-		Name: "ProductDescriptionID",
-		Datatype: "INT",
-		Nullable: "N",
-		Description: "Clustered index created by a primary key constraint."
-	}, {
 		Name: "Description",
 		Datatype: "NVARCHAR(800)",
 		Nullable: "N",
 		Description: "Description of the product."
-	}, {
-		Name: "Description",
-		Datatype: "NVARCHAR(800)",
-		Nullable: "N",
-		Description: "Unique nonclustered index. Used to support replication samples."
 	}, {
 		Name: "rowguid",
 		Datatype: "UNIQUEIDENTIFIER",
@@ -2410,11 +2040,6 @@ var dbData = [{
 		Nullable: "N",
 		Description: "Product identification number. Foreign key to Product.ProductID."
 	}, {
-		Name: "ProductID",
-		Datatype: "INT",
-		Nullable: "N",
-		Description: "Clustered index created by a primary key constraint."
-	}, {
 		Name: "DocumentNode",
 		Datatype: "HIERARCHYID",
 		Nullable: "N",
@@ -2452,11 +2077,6 @@ var dbData = [{
 		Datatype: "INT",
 		Nullable: "N",
 		Description: "Product identification number. Foreign key to Product.ProductID."
-	}, {
-		Name: "ProductID",
-		Datatype: "INT",
-		Nullable: "N",
-		Description: "Clustered index created by a primary key constraint."
 	}, {
 		Name: "LocationID",
 		Datatype: "SMALLINT",
@@ -2533,11 +2153,6 @@ var dbData = [{
 		Nullable: "N",
 		Description: "Product identification number. Foreign key to Product.ProductID"
 	}, {
-		Name: "ProductID",
-		Datatype: "INT",
-		Nullable: "N",
-		Description: "Clustered index created by a primary key constraint."
-	}, {
 		Name: "StartDate",
 		Datatype: "DATETIME",
 		Nullable: "N",
@@ -2591,30 +2206,15 @@ var dbData = [{
 		Nullable: "N",
 		Description: "Primary key for ProductModel records."
 	}, {
-		Name: "ProductModelID",
-		Datatype: "INT",
-		Nullable: "N",
-		Description: "Clustered index created by a primary key constraint."
-	}, {
 		Name: "Name",
 		Datatype: "NAME",
 		Nullable: "N",
 		Description: "Product model description."
 	}, {
-		Name: "Name",
-		Datatype: "NAME",
-		Nullable: "N",
-		Description: "Unique nonclustered index."
-	}, {
 		Name: "CatalogDescription",
 		Datatype: "XML",
 		Nullable: "Y",
 		Description: "Detailed product catalog information in xml format."
-	}, {
-		Name: "CatalogDescription",
-		Datatype: "XML",
-		Nullable: "Y",
-		Description: "Unique nonclustered index. Used to support replication samples."
 	}, {
 		Name: "Instructions",
 		Datatype: "XML",
@@ -2670,11 +2270,6 @@ var dbData = [{
 		Nullable: "N",
 		Description: "Primary key. Foreign key to ProductModel.ProductModelID."
 	}, {
-		Name: "ProductModelID",
-		Datatype: "INT",
-		Nullable: "N",
-		Description: "Clustered index created by a primary key constraint."
-	}, {
 		Name: "IllustrationID",
 		Datatype: "INT",
 		Nullable: "N",
@@ -2712,11 +2307,6 @@ var dbData = [{
 		Datatype: "INT",
 		Nullable: "N",
 		Description: "Primary key. Foreign key to ProductModel.ProductModelID."
-	}, {
-		Name: "ProductModelID",
-		Datatype: "INT",
-		Nullable: "N",
-		Description: "Clustered index created by a primary key constraint."
 	}, {
 		Name: "ProductDescriptionID",
 		Datatype: "INT",
@@ -2764,11 +2354,6 @@ var dbData = [{
 		Datatype: "INT",
 		Nullable: "N",
 		Description: "Primary key for ProductPhoto records."
-	}, {
-		Name: "ProductPhotoID",
-		Datatype: "INT",
-		Nullable: "N",
-		Description: "Clustered index created by a primary key constraint."
 	}, {
 		Name: "ThumbNailPhoto",
 		Datatype: "VARBINARY",
@@ -2819,11 +2404,6 @@ var dbData = [{
 		Nullable: "N",
 		Description: "Product photo identification number. Foreign key to ProductPhoto.ProductPhotoID."
 	}, {
-		Name: "ProductPhotoID",
-		Datatype: "INT",
-		Nullable: "N",
-		Description: "Nonclustered index created by a primary key constraint."
-	}, {
 		Name: "Primary",
 		Datatype: "FLAG",
 		Nullable: "N",
@@ -2866,20 +2446,10 @@ var dbData = [{
 		Nullable: "N",
 		Description: "Primary key for ProductReview records."
 	}, {
-		Name: "ProductReviewID",
-		Datatype: "INT",
-		Nullable: "N",
-		Description: "Clustered index created by a primary key constraint."
-	}, {
 		Name: "ProductID",
 		Datatype: "INT",
 		Nullable: "N",
 		Description: "Product identification number. Foreign key to Product.ProductID."
-	}, {
-		Name: "ProductID",
-		Datatype: "INT",
-		Nullable: "N",
-		Description: "Nonclustered index."
 	}, {
 		Name: "ReviewerName",
 		Datatype: "NAME",
@@ -2948,30 +2518,15 @@ var dbData = [{
 		Nullable: "N",
 		Description: "Primary key for ProductSubcategory records."
 	}, {
-		Name: "ProductSubcategoryID",
-		Datatype: "INT",
-		Nullable: "N",
-		Description: "Clustered index created by a primary key constraint."
-	}, {
 		Name: "ProductCategoryID",
 		Datatype: "INT",
 		Nullable: "N",
 		Description: "Product category identification number. Foreign key to ProductCategory.ProductCategoryID."
 	}, {
-		Name: "ProductCategoryID",
-		Datatype: "INT",
-		Nullable: "N",
-		Description: "Unique nonclustered index."
-	}, {
 		Name: "Name",
 		Datatype: "NAME",
 		Nullable: "N",
 		Description: "Subcategory description."
-	}, {
-		Name: "Name",
-		Datatype: "NAME",
-		Nullable: "N",
-		Description: "Unique nonclustered index. Used to support replication samples."
 	}, {
 		Name: "rowguid",
 		Datatype: "UNIQUEIDENTIFIER",
@@ -3019,20 +2574,10 @@ var dbData = [{
 		Nullable: "N",
 		Description: "Primary key for ScrapReason records."
 	}, {
-		Name: "ScrapReasonID",
-		Datatype: "SMALLINT",
-		Nullable: "N",
-		Description: "Clustered index created by a primary key constraint."
-	}, {
 		Name: "Name",
 		Datatype: "NAME",
 		Nullable: "N",
 		Description: "Failure description."
-	}, {
-		Name: "Name",
-		Datatype: "NAME",
-		Nullable: "N",
-		Description: "Unique nonclustered index."
 	}, {
 		Name: "ModifiedDate",
 		Datatype: "DATETIME",
@@ -3062,30 +2607,15 @@ var dbData = [{
 		Nullable: "N",
 		Description: "Primary key for TransactionHistory records."
 	}, {
-		Name: "TransactionID",
-		Datatype: "INT",
-		Nullable: "N",
-		Description: "Clustered index created by a primary key constraint."
-	}, {
 		Name: "ProductID",
 		Datatype: "INT",
 		Nullable: "N",
 		Description: "Product identification number. Foreign key to Product.ProductID."
 	}, {
-		Name: "ProductID",
-		Datatype: "INT",
-		Nullable: "N",
-		Description: "Nonclustered index."
-	}, {
 		Name: "ReferenceOrderID",
 		Datatype: "INT",
 		Nullable: "N",
 		Description: "Purchase order, sales order, or work order identification number."
-	}, {
-		Name: "ReferenceOrderID",
-		Datatype: "INT",
-		Nullable: "N",
-		Description: "Nonclustered index."
 	}, {
 		Name: "ReferenceOrderLineID",
 		Datatype: "INT",
@@ -3162,30 +2692,15 @@ var dbData = [{
 		Nullable: "N",
 		Description: "Primary key for TransactionHistoryArchive records."
 	}, {
-		Name: "TransactionID",
-		Datatype: "INT",
-		Nullable: "N",
-		Description: "Clustered index created by a primary key constraint."
-	}, {
 		Name: "ProductID",
 		Datatype: "INT",
 		Nullable: "N",
 		Description: "Product identification number. Foreign key to Product.ProductID."
 	}, {
-		Name: "ProductID",
-		Datatype: "INT",
-		Nullable: "N",
-		Description: "Nonclustered index."
-	}, {
 		Name: "ReferenceOrderID",
 		Datatype: "INT",
 		Nullable: "N",
 		Description: "Purchase order, sales order, or work order identification number."
-	}, {
-		Name: "ReferenceOrderID",
-		Datatype: "INT",
-		Nullable: "N",
-		Description: "Nonclustered index."
 	}, {
 		Name: "ReferenceOrderLineID",
 		Datatype: "INT",
@@ -3257,20 +2772,10 @@ var dbData = [{
 		Nullable: "N",
 		Description: "Primary key."
 	}, {
-		Name: "UnitMeasureCode",
-		Datatype: "NCHAR(6)",
-		Nullable: "N",
-		Description: "Clustered index created by a primary key constraint."
-	}, {
 		Name: "Name",
 		Datatype: "NAME",
 		Nullable: "N",
 		Description: "Unit of measure description."
-	}, {
-		Name: "Name",
-		Datatype: "NAME",
-		Nullable: "N",
-		Description: "Unique nonclustered index."
 	}, {
 		Name: "ModifiedDate",
 		Datatype: "DATETIME",
@@ -3300,30 +2805,15 @@ var dbData = [{
 		Nullable: "N",
 		Description: "Primary key for WorkOrder records."
 	}, {
-		Name: "WorkOrderID",
-		Datatype: "INT",
-		Nullable: "N",
-		Description: "Clustered index created by a primary key constraint."
-	}, {
 		Name: "ProductID",
 		Datatype: "INT",
 		Nullable: "N",
 		Description: "Product identification number. Foreign key to Product.ProductID."
 	}, {
-		Name: "ProductID",
-		Datatype: "INT",
-		Nullable: "N",
-		Description: "Nonclustered index."
-	}, {
 		Name: "OrderQty",
 		Datatype: "INT",
 		Nullable: "N",
 		Description: "Product quantity to build."
-	}, {
-		Name: "OrderQty",
-		Datatype: "INT",
-		Nullable: "N",
-		Description: "Nonclustered index."
 	}, {
 		Name: "StockedQty",
 		Datatype: "INT",
@@ -3416,20 +2906,10 @@ var dbData = [{
 		Nullable: "N",
 		Description: "Primary key. Foreign key to WorkOrder.WorkOrderID."
 	}, {
-		Name: "WorkOrderID",
-		Datatype: "INT",
-		Nullable: "N",
-		Description: "Clustered index created by a primary key constraint."
-	}, {
 		Name: "ProductID",
 		Datatype: "INT",
 		Nullable: "N",
 		Description: "Primary key. Foreign key to Product.ProductID."
-	}, {
-		Name: "ProductID",
-		Datatype: "INT",
-		Nullable: "N",
-		Description: "Nonclustered index."
 	}, {
 		Name: "OperationSequence",
 		Datatype: "SMALLINT",
@@ -3534,30 +3014,15 @@ var dbData = [{
 		Nullable: "N",
 		Description: "Primary key. Foreign key to Product.ProductID."
 	}, {
-		Name: "ProductID",
-		Datatype: "INT",
-		Nullable: "N",
-		Description: "Clustered index created by a primary key constraint."
-	}, {
 		Name: "BusinessEntityID",
 		Datatype: "INT",
 		Nullable: "N",
 		Description: "Primary key. Foreign key to Vendor.BusinessEntityID."
 	}, {
-		Name: "BusinessEntityID",
-		Datatype: "INT",
-		Nullable: "N",
-		Description: "Nonclustered index."
-	}, {
 		Name: "AverageLeadTime",
 		Datatype: "INT",
 		Nullable: "N",
 		Description: "The average span of time (in days) between placing an order with the vendor and receiving the purchased product."
-	}, {
-		Name: "AverageLeadTime",
-		Datatype: "INT",
-		Nullable: "N",
-		Description: "Nonclustered index."
 	}, {
 		Name: "StandardPrice",
 		Datatype: "MONEY",
@@ -3664,20 +3129,10 @@ var dbData = [{
 		Nullable: "N",
 		Description: "Primary key. Foreign key to PurchaseOrderHeader.PurchaseOrderID."
 	}, {
-		Name: "PurchaseOrderID",
-		Datatype: "INT",
-		Nullable: "N",
-		Description: "Clustered index created by a primary key constraint."
-	}, {
 		Name: "PurchaseOrderDetailID",
 		Datatype: "INT",
 		Nullable: "N",
 		Description: "Primary key. One line number per purchased product."
-	}, {
-		Name: "PurchaseOrderDetailID",
-		Datatype: "INT",
-		Nullable: "N",
-		Description: "Nonclustered index."
 	}, {
 		Name: "DueDate",
 		Datatype: "DATETIME",
@@ -3780,30 +3235,15 @@ var dbData = [{
 		Nullable: "N",
 		Description: "Primary key."
 	}, {
-		Name: "PurchaseOrderID",
-		Datatype: "INT",
-		Nullable: "N",
-		Description: "Clustered index created by a primary key constraint."
-	}, {
 		Name: "RevisionNumber",
 		Datatype: "TINYINT",
 		Nullable: "N",
 		Description: "Incremental number to track changes to the purchase order over time."
 	}, {
-		Name: "RevisionNumber",
-		Datatype: "TINYINT",
-		Nullable: "N",
-		Description: "Nonclustered index."
-	}, {
 		Name: "Status",
 		Datatype: "TINYINT",
 		Nullable: "N",
 		Description: "Order current status. 1 = Pending; 2 = Approved; 3 = Rejected; 4 = Complete"
-	}, {
-		Name: "Status",
-		Datatype: "TINYINT",
-		Nullable: "N",
-		Description: "Nonclustered index."
 	}, {
 		Name: "EmployeeID",
 		Datatype: "INT",
@@ -3944,30 +3384,15 @@ var dbData = [{
 		Nullable: "N",
 		Description: "Primary key for ShipMethod records."
 	}, {
-		Name: "ShipMethodID",
-		Datatype: "INT",
-		Nullable: "N",
-		Description: "Clustered index created by a primary key constraint."
-	}, {
 		Name: "Name",
 		Datatype: "NAME",
 		Nullable: "N",
 		Description: "Shipping company name."
 	}, {
-		Name: "Name",
-		Datatype: "NAME",
-		Nullable: "N",
-		Description: "Unique nonclustered index."
-	}, {
 		Name: "ShipBase",
 		Datatype: "MONEY",
 		Nullable: "N",
 		Description: "Minimum shipping charge."
-	}, {
-		Name: "ShipBase",
-		Datatype: "MONEY",
-		Nullable: "N",
-		Description: "Unique nonclustered index. Used to support replication samples."
 	}, {
 		Name: "ShipRate",
 		Datatype: "MONEY",
@@ -4032,20 +3457,10 @@ var dbData = [{
 		Nullable: "N",
 		Description: "Primary key for Vendor records.  Foreign key to BusinessEntity.BusinessEntityID"
 	}, {
-		Name: "BusinessEntityID",
-		Datatype: "INT",
-		Nullable: "N",
-		Description: "Clustered index created by a primary key constraint."
-	}, {
 		Name: "AccountNumber",
 		Datatype: "ACCOUNTNUMBER",
 		Nullable: "N",
 		Description: "Vendor account (identification) number."
-	}, {
-		Name: "AccountNumber",
-		Datatype: "ACCOUNTNUMBER",
-		Nullable: "N",
-		Description: "Unique nonclustered index."
 	}, {
 		Name: "Name",
 		Datatype: "NAME",
@@ -4122,20 +3537,10 @@ var dbData = [{
 		Nullable: "N",
 		Description: "ISO code for countries and regions. Foreign key to CountryRegion.CountryRegionCode."
 	}, {
-		Name: "CountryRegionCode",
-		Datatype: "NVARCHAR(6)",
-		Nullable: "N",
-		Description: "Clustered index created by a primary key constraint."
-	}, {
 		Name: "CurrencyCode",
 		Datatype: "NCHAR(6)",
 		Nullable: "N",
 		Description: "ISO standard currency code. Foreign key to Currency.CurrencyCode."
-	}, {
-		Name: "CurrencyCode",
-		Datatype: "NCHAR(6)",
-		Nullable: "N",
-		Description: "Nonclustered index."
 	}, {
 		Name: "ModifiedDate",
 		Datatype: "DATETIME",
@@ -4174,20 +3579,10 @@ var dbData = [{
 		Nullable: "N",
 		Description: "Primary key for CreditCard records."
 	}, {
-		Name: "CreditCardID",
-		Datatype: "INT",
-		Nullable: "N",
-		Description: "Clustered index created by a primary key constraint."
-	}, {
 		Name: "CardType",
 		Datatype: "NVARCHAR(100)",
 		Nullable: "N",
 		Description: "Credit card name."
-	}, {
-		Name: "CardType",
-		Datatype: "NVARCHAR(100)",
-		Nullable: "N",
-		Description: "Unique nonclustered index."
 	}, {
 		Name: "CardNumber",
 		Datatype: "NVARCHAR(50)",
@@ -4232,20 +3627,10 @@ var dbData = [{
 		Nullable: "N",
 		Description: "The ISO code for the Currency."
 	}, {
-		Name: "CurrencyCode",
-		Datatype: "NCHAR(6)",
-		Nullable: "N",
-		Description: "Clustered index created by a primary key constraint."
-	}, {
 		Name: "Name",
 		Datatype: "NAME",
 		Nullable: "N",
 		Description: "Currency name."
-	}, {
-		Name: "Name",
-		Datatype: "NAME",
-		Nullable: "N",
-		Description: "Unique nonclustered index."
 	}, {
 		Name: "ModifiedDate",
 		Datatype: "DATETIME",
@@ -4275,20 +3660,10 @@ var dbData = [{
 		Nullable: "N",
 		Description: "Primary key for CurrencyRate records."
 	}, {
-		Name: "CurrencyRateID",
-		Datatype: "INT",
-		Nullable: "N",
-		Description: "Clustered index created by a primary key constraint."
-	}, {
 		Name: "CurrencyRateDate",
 		Datatype: "DATETIME",
 		Nullable: "N",
 		Description: "Date and time the exchange rate was obtained."
-	}, {
-		Name: "CurrencyRateDate",
-		Datatype: "DATETIME",
-		Nullable: "N",
-		Description: "Unique nonclustered index."
 	}, {
 		Name: "FromCurrencyCode",
 		Datatype: "NCHAR(6)",
@@ -4347,30 +3722,15 @@ var dbData = [{
 		Nullable: "N",
 		Description: "Primary key."
 	}, {
-		Name: "CustomerID",
-		Datatype: "INT",
-		Nullable: "N",
-		Description: "Clustered index created by a primary key constraint."
-	}, {
 		Name: "PersonID",
 		Datatype: "INT",
 		Nullable: "Y",
 		Description: "Foreign key to Person.BusinessEntityID"
 	}, {
-		Name: "PersonID",
-		Datatype: "INT",
-		Nullable: "Y",
-		Description: "Unique nonclustered index. Used to support replication samples."
-	}, {
 		Name: "StoreID",
 		Datatype: "INT",
 		Nullable: "Y",
 		Description: "Foreign key to Store.BusinessEntityID"
-	}, {
-		Name: "StoreID",
-		Datatype: "INT",
-		Nullable: "Y",
-		Description: "Unique nonclustered index."
 	}, {
 		Name: "TerritoryID",
 		Datatype: "INT",
@@ -4381,11 +3741,6 @@ var dbData = [{
 		Datatype: "VARCHAR(10)",
 		Nullable: "N",
 		Description: "Unique number identifying the customer assigned by the accounting system."
-	}, {
-		Name: "AccountNumber",
-		Datatype: "VARCHAR(10)",
-		Nullable: "N",
-		Description: "Nonclustered index."
 	}, {
 		Name: "rowguid",
 		Datatype: "UNIQUEIDENTIFIER",
@@ -4445,11 +3800,6 @@ var dbData = [{
 		Nullable: "N",
 		Description: "Business entity identification number. Foreign key to Person.BusinessEntityID."
 	}, {
-		Name: "BusinessEntityID",
-		Datatype: "INT",
-		Nullable: "N",
-		Description: "Clustered index created by a primary key constraint."
-	}, {
 		Name: "CreditCardID",
 		Datatype: "INT",
 		Nullable: "N",
@@ -4488,30 +3838,15 @@ var dbData = [{
 		Nullable: "N",
 		Description: "Primary key. Foreign key to SalesOrderHeader.SalesOrderID."
 	}, {
-		Name: "SalesOrderID",
-		Datatype: "INT",
-		Nullable: "N",
-		Description: "Clustered index created by a primary key constraint."
-	}, {
 		Name: "SalesOrderDetailID",
 		Datatype: "INT",
 		Nullable: "N",
 		Description: "Primary key. One incremental unique number per product sold."
 	}, {
-		Name: "SalesOrderDetailID",
-		Datatype: "INT",
-		Nullable: "N",
-		Description: "Unique nonclustered index. Used to support replication samples."
-	}, {
 		Name: "CarrierTrackingNumber",
 		Datatype: "NVARCHAR(50)",
 		Nullable: "Y",
 		Description: "Shipment tracking number supplied by the shipper."
-	}, {
-		Name: "CarrierTrackingNumber",
-		Datatype: "NVARCHAR(50)",
-		Nullable: "Y",
-		Description: "Nonclustered index."
 	}, {
 		Name: "OrderQty",
 		Datatype: "SMALLINT",
@@ -4618,30 +3953,15 @@ var dbData = [{
 		Nullable: "N",
 		Description: "Primary key."
 	}, {
-		Name: "SalesOrderID",
-		Datatype: "INT",
-		Nullable: "N",
-		Description: "Clustered index created by a primary key constraint."
-	}, {
 		Name: "RevisionNumber",
 		Datatype: "TINYINT",
 		Nullable: "N",
 		Description: "Incremental number to track changes to the sales order over time."
 	}, {
-		Name: "RevisionNumber",
-		Datatype: "TINYINT",
-		Nullable: "N",
-		Description: "Unique nonclustered index. Used to support replication samples."
-	}, {
 		Name: "OrderDate",
 		Datatype: "DATETIME",
 		Nullable: "N",
 		Description: "Dates the sales order was created."
-	}, {
-		Name: "OrderDate",
-		Datatype: "DATETIME",
-		Nullable: "N",
-		Description: "Unique nonclustered index."
 	}, {
 		Name: "DueDate",
 		Datatype: "DATETIME",
@@ -4653,20 +3973,10 @@ var dbData = [{
 		Nullable: "Y",
 		Description: "Date the order was shipped to the customer."
 	}, {
-		Name: "ShipDate",
-		Datatype: "DATETIME",
-		Nullable: "Y",
-		Description: "Nonclustered index."
-	}, {
 		Name: "Status",
 		Datatype: "TINYINT",
 		Nullable: "N",
 		Description: "Order current status. 1 = In process; 2 = Approved; 3 = Backordered; 4 = Rejected; 5 = Shipped; 6 = Cancelled"
-	}, {
-		Name: "Status",
-		Datatype: "TINYINT",
-		Nullable: "N",
-		Description: "Nonclustered index."
 	}, {
 		Name: "OnlineOrderFlag",
 		Datatype: "FLAG",
@@ -4897,11 +4207,6 @@ var dbData = [{
 		Nullable: "N",
 		Description: "Primary key. Foreign key to SalesOrderHeader.SalesOrderID."
 	}, {
-		Name: "SalesOrderID",
-		Datatype: "INT",
-		Nullable: "N",
-		Description: "Clustered index created by a primary key constraint."
-	}, {
 		Name: "SalesReasonID",
 		Datatype: "INT",
 		Nullable: "N",
@@ -4940,20 +4245,10 @@ var dbData = [{
 		Nullable: "N",
 		Description: "Primary key for SalesPerson records. Foreign key to Employee.BusinessEntityID"
 	}, {
-		Name: "BusinessEntityID",
-		Datatype: "INT",
-		Nullable: "N",
-		Description: "Clustered index created by a primary key constraint."
-	}, {
 		Name: "TerritoryID",
 		Datatype: "INT",
 		Nullable: "Y",
 		Description: "Territory currently assigned to. Foreign key to SalesTerritory.SalesTerritoryID."
-	}, {
-		Name: "TerritoryID",
-		Datatype: "INT",
-		Nullable: "Y",
-		Description: "Unique nonclustered index. Used to support replication samples."
 	}, {
 		Name: "SalesQuota",
 		Datatype: "MONEY",
@@ -5063,20 +4358,10 @@ var dbData = [{
 		Nullable: "N",
 		Description: "Sales person identification number. Foreign key to SalesPerson.BusinessEntityID."
 	}, {
-		Name: "BusinessEntityID",
-		Datatype: "INT",
-		Nullable: "N",
-		Description: "Clustered index created by a primary key constraint."
-	}, {
 		Name: "QuotaDate",
 		Datatype: "DATETIME",
 		Nullable: "N",
 		Description: "Sales quota date."
-	}, {
-		Name: "QuotaDate",
-		Datatype: "DATETIME",
-		Nullable: "N",
-		Description: "Unique nonclustered index. Used to support replication samples."
 	}, {
 		Name: "SalesQuota",
 		Datatype: "MONEY",
@@ -5130,11 +4415,6 @@ var dbData = [{
 		Nullable: "N",
 		Description: "Primary key for SalesReason records."
 	}, {
-		Name: "SalesReasonID",
-		Datatype: "INT",
-		Nullable: "N",
-		Description: "Clustered index created by a primary key constraint."
-	}, {
 		Name: "Name",
 		Datatype: "NAME",
 		Nullable: "N",
@@ -5169,30 +4449,15 @@ var dbData = [{
 		Nullable: "N",
 		Description: "Primary key for SalesTaxRate records."
 	}, {
-		Name: "SalesTaxRateID",
-		Datatype: "INT",
-		Nullable: "N",
-		Description: "Clustered index created by a primary key constraint."
-	}, {
 		Name: "StateProvinceID",
 		Datatype: "INT",
 		Nullable: "N",
 		Description: "State, province, or country/region the sales tax applies to."
 	}, {
-		Name: "StateProvinceID",
-		Datatype: "INT",
-		Nullable: "N",
-		Description: "Unique nonclustered index."
-	}, {
 		Name: "TaxType",
 		Datatype: "TINYINT",
 		Nullable: "N",
 		Description: "1 = Tax applied to retail transactions, 2 = Tax applied to wholesale transactions, 3 = Tax applied to all sales (retail and wholesale) transactions."
-	}, {
-		Name: "TaxType",
-		Datatype: "TINYINT",
-		Nullable: "N",
-		Description: "Unique nonclustered index. Used to support replication samples."
 	}, {
 		Name: "TaxRate",
 		Datatype: "SMALLMONEY",
@@ -5259,30 +4524,15 @@ var dbData = [{
 		Nullable: "N",
 		Description: "Primary key for SalesTerritory records."
 	}, {
-		Name: "TerritoryID",
-		Datatype: "INT",
-		Nullable: "N",
-		Description: "Clustered index created by a primary key constraint."
-	}, {
 		Name: "Name",
 		Datatype: "NAME",
 		Nullable: "N",
 		Description: "Sales territory description"
 	}, {
-		Name: "Name",
-		Datatype: "NAME",
-		Nullable: "N",
-		Description: "Unique nonclustered index."
-	}, {
 		Name: "CountryRegionCode",
 		Datatype: "NVARCHAR(6)",
 		Nullable: "N",
 		Description: "ISO standard country or region code. Foreign key to CountryRegion.CountryRegionCode. "
-	}, {
-		Name: "CountryRegionCode",
-		Datatype: "NVARCHAR(6)",
-		Nullable: "N",
-		Description: "Unique nonclustered index. Used to support replication samples."
 	}, {
 		Name: "Group",
 		Datatype: "NVARCHAR(100)",
@@ -5388,20 +4638,10 @@ var dbData = [{
 		Nullable: "N",
 		Description: "Primary key. The sales rep.  Foreign key to SalesPerson.BusinessEntityID."
 	}, {
-		Name: "BusinessEntityID",
-		Datatype: "INT",
-		Nullable: "N",
-		Description: "Clustered index created by a primary key constraint."
-	}, {
 		Name: "TerritoryID",
 		Datatype: "INT",
 		Nullable: "N",
 		Description: "Primary key. Territory identification number. Foreign key to SalesTerritory.SalesTerritoryID."
-	}, {
-		Name: "TerritoryID",
-		Datatype: "INT",
-		Nullable: "N",
-		Description: "Unique nonclustered index. Used to support replication samples."
 	}, {
 		Name: "StartDate",
 		Datatype: "DATETIME",
@@ -5464,20 +4704,10 @@ var dbData = [{
 		Nullable: "N",
 		Description: "Primary key for ShoppingCartItem records."
 	}, {
-		Name: "ShoppingCartItemID",
-		Datatype: "INT",
-		Nullable: "N",
-		Description: "Clustered index created by a primary key constraint."
-	}, {
 		Name: "ShoppingCartID",
 		Datatype: "NVARCHAR(100)",
 		Nullable: "N",
 		Description: "Shopping cart identification number."
-	}, {
-		Name: "ShoppingCartID",
-		Datatype: "NVARCHAR(100)",
-		Nullable: "N",
-		Description: "Nonclustered index."
 	}, {
 		Name: "Quantity",
 		Datatype: "INT",
@@ -5540,20 +4770,10 @@ var dbData = [{
 		Nullable: "N",
 		Description: "Primary key for SpecialOffer records."
 	}, {
-		Name: "SpecialOfferID",
-		Datatype: "INT",
-		Nullable: "N",
-		Description: "Clustered index created by a primary key constraint."
-	}, {
 		Name: "Description",
 		Datatype: "NVARCHAR(510)",
 		Nullable: "N",
 		Description: "Discount description."
-	}, {
-		Name: "Description",
-		Datatype: "NVARCHAR(510)",
-		Nullable: "N",
-		Description: "Unique nonclustered index. Used to support replication samples."
 	}, {
 		Name: "DiscountPct",
 		Datatype: "SMALLMONEY",
@@ -5652,30 +4872,15 @@ var dbData = [{
 		Nullable: "N",
 		Description: "Primary key for SpecialOfferProduct records."
 	}, {
-		Name: "SpecialOfferID",
-		Datatype: "INT",
-		Nullable: "N",
-		Description: "Clustered index created by a primary key constraint."
-	}, {
 		Name: "ProductID",
 		Datatype: "INT",
 		Nullable: "N",
 		Description: "Product identification number. Foreign key to Product.ProductID."
 	}, {
-		Name: "ProductID",
-		Datatype: "INT",
-		Nullable: "N",
-		Description: "Unique nonclustered index. Used to support replication samples."
-	}, {
 		Name: "rowguid",
 		Datatype: "UNIQUEIDENTIFIER",
 		Nullable: "N",
 		Description: "ROWGUIDCOL number uniquely identifying the record. Used to support a merge replication sample."
-	}, {
-		Name: "rowguid",
-		Datatype: "UNIQUEIDENTIFIER",
-		Nullable: "N",
-		Description: "Nonclustered index."
 	}, {
 		Name: "ModifiedDate",
 		Datatype: "DATETIME",
@@ -5722,30 +4927,15 @@ var dbData = [{
 		Nullable: "N",
 		Description: "Primary key. Foreign key to Customer.BusinessEntityID."
 	}, {
-		Name: "BusinessEntityID",
-		Datatype: "INT",
-		Nullable: "N",
-		Description: "Clustered index created by a primary key constraint."
-	}, {
 		Name: "Name",
 		Datatype: "NAME",
 		Nullable: "N",
 		Description: "Name of the store."
 	}, {
-		Name: "Name",
-		Datatype: "NAME",
-		Nullable: "N",
-		Description: "Unique nonclustered index. Used to support replication samples."
-	}, {
 		Name: "SalesPersonID",
 		Datatype: "INT",
 		Nullable: "Y",
 		Description: "ID of the sales person assigned to the customer. Foreign key to SalesPerson.BusinessEntityID."
-	}, {
-		Name: "SalesPersonID",
-		Datatype: "INT",
-		Nullable: "Y",
-		Description: "Nonclustered index."
 	}, {
 		Name: "Demographics",
 		Datatype: "XML",
@@ -6312,7 +5502,7 @@ var dbData = [{
 		Name: "StateProvinceID",
 		Datatype: "INT",
 		Nullable: "N",
-		Description: "Clustered index on the view vStateProvinceCountryRegion."
+		Description: ""
 	}, {
 		Name: "StateProvinceCode",
 		Datatype: "NCHAR(6)",
@@ -6356,7 +5546,7 @@ var dbData = [{
 		Name: "ProductID",
 		Datatype: "INT",
 		Nullable: "N",
-		Description: "Clustered index on the view vProductAndDescription."
+		Description: ""
 	}, {
 		Name: "Name",
 		Datatype: "NAME",

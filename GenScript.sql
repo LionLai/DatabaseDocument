@@ -108,7 +108,7 @@ BEGIN
 					cast(p.value as nvarchar(4000))
 		from sys.columns c
 				inner join #Tables t on t.object_id = c.object_id
-				left outer join sys.extended_properties p on p.major_id = c.object_id and p.minor_id  = c.column_id and p.name = 'MS_Description' 
+				left outer join sys.extended_properties p on p.major_id = c.object_id and p.minor_id  = c.column_id and p.name = 'MS_Description' AND p.class = 1
 		where t.id = @i
 		order by c.column_id
 		end
